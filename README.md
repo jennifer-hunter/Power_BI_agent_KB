@@ -32,6 +32,8 @@ This is a **proof of concept** demonstrating how Power BI report formatting can 
 
 **Disclaimer**: This project is provided as-is for educational and productivity purposes. Please test thoroughly with non-critical reports before using on important work. Always keep backups of your original files.
 
+**Limitations and Room for Improvement**: Power BI templates already exist, and some may offer more polished designs than what this toolkit produces. However, I found that pre-built templates often come as a fixed package - when you want to adjust colours, tweak layouts, or adapt them to your specific needs, you're back to manual editing. This toolkit takes a different approach: **customisation is the core principle**. By combining AI assistance with editable rules, you can iterate on themes, adjust layouts through conversation, and shape the output to match your vision rather than accepting a one-size-fits-all solution.
+
 ---
 
 ## Why This Exists
