@@ -2,7 +2,20 @@
 
 **Authored by Jennifer Hunter and Claude Code (Anthropic)**
 
-A curated collection of professionally designed Power BI report templates, themes, and layout rules for use with AI-assisted report reformatting.
+---
+
+## Contents
+
+- [About This Project](#about-this-project)
+- [Why This Exists](#why-this-exists)
+- [Ethical AI Use](#ethical-ai-use)
+- [Copilot Agent Training](#copilot-agent-training)
+- [What is Power BI?](#what-is-power-bi)
+- [PBIP File Structure](#pbip-file-structure)
+- [How It Works](#how-it-works)
+- [Installation](#installation)
+- [Repository Structure](#repository-structure)
+- [License](#license)
 
 ---
 
