@@ -179,9 +179,10 @@ Then:
 1. Find the Word document created in Step 7 (at your OUTPUT_FILE location)
 2. Upload the entire Word document to your trained Copilot agent
 3. The agent will analyse your report structure and suggest formatting improvements
-4. Download the edited Word document from Copilot
-5. Save it to your INPUT_WORD_DOC location (or update the path in your .env file)
-6. Continue to Step 9
+4. Chat with the agent to explore different themes, adjust layouts, or refine the design to match your vision
+5. Download the edited Word document from Copilot
+6. Save it to your INPUT_WORD_DOC location (or update the path in your .env file)
+7. Continue to Step 9
 
 See [PROMPT_GUIDE.md](PROMPT_GUIDE.md) for safe, low-risk prompts you can use with your Copilot agent.
 
