@@ -221,26 +221,25 @@ Restoration complete!
 
 ---
 
-## Step 10: Open Your Reformatted Report
+## Step 10: Finalise Your Report
 
-1. Open **Power BI Desktop**
-2. Click **File** → **Open report**
-3. Navigate to your output folder (the OUTPUT_REPORT_DIR location from your .env file)
-4. Select the `.pbip` file inside and click **Open**
+Before opening in Power BI, you need to rename the folders:
 
-Your reformatted report should now be visible.
+1. Rename your original `.Report` folder to something else (e.g., add `_backup` to the end)
+2. Rename the output folder to match the original folder name (remove the `_reformatted` part)
+
+**Why isn't this automated?**
+This manual step is intentional - it acts as a safeguard, giving you the opportunity to review the output before replacing your original work.
 
 ---
 
-## Step 11: Finalise Your Report
+## Step 11: Open Your Reformatted Report
 
-Once you are happy with the reformatted report:
+1. Open **Power BI Desktop**
+2. Click **File** → **Open report**
+3. Navigate to your `.pbip` file and click **Open**
 
-1. Delete your original `.Report` folder (or move it to a backup location)
-2. Rename the output folder to match the original folder name
-
-**Why isn't this automated?**
-This manual step is intentional - it acts as a safeguard, giving you the opportunity to review and verify the changes before replacing your original work. Always check the reformatted report in Power BI Desktop before overwriting your source files.
+If you've renamed the folders correctly, the report will load with all your formatting changes applied.
 
 ---
 
