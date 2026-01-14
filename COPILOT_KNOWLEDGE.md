@@ -80,12 +80,6 @@ Main content:
 
 ### Corporate Blue Theme
 
-**When to use**:
-- Finance and banking
-- Consulting firms
-- Conservative corporate environments
-- Government/public sector
-
 **Complete theme JSON**:
 ```json
 {
@@ -129,12 +123,6 @@ Main content:
 
 ### Modern Dark Theme
 
-**When to use**:
-- Technology companies
-- Startups
-- Developer/analyst audiences
-- Digital/innovation contexts
-
 **Complete theme JSON**:
 ```json
 {
@@ -177,12 +165,6 @@ Main content:
 ```
 
 ### Clean Minimal Theme
-
-**When to use**:
-- Executive presentations
-- Board reports
-- Print-friendly dashboards
-- Minimalist preferences
 
 **Complete theme JSON**:
 ```json
