@@ -159,4 +159,7 @@ __marimo__/
 *.docx
 
 # Draft docs (not ready for upload)
-README.md
+
+
+# Claude Code internal folder
+.claude/

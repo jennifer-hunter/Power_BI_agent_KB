@@ -15,15 +15,14 @@ PAGE_WIDTH = 1280     # Standard page width
 PAGE_HEIGHT = 720     # Standard page height
 ```
 
-### KPI Dashboard Layout
+### KPI Dashboard Layout (No Tables)
 
-**When to use**: Reports with 3+ KPI/card visuals and summary charts
+**When to use**: Reports with KPI/card visuals and charts only
 
 **Rules**:
 - KPIs in top row, height = 120px
 - Distribute KPIs evenly across width
 - Charts fill remaining space in 2x2 grid
-- Tables (if any) at bottom, height = 200px
 
 **Position calculations**:
 ```
@@ -41,15 +40,58 @@ Chart area:
   width = (content_width - GAP) / 2
 ```
 
+### Mixed Layout (Charts + Table)
+
+**When to use**: Reports with both charts and tables on the same page
+
+**Rules**:
+- KPIs in top row (if present), height = 120px
+- Charts on left half (50% width)
+- Table on right half (50% width, full height below KPIs)
+
+**Position calculations**:
+```
+Content width = PAGE_WIDTH - (2 * MARGIN) = 1200px
+Half width = (content_width - GAP) / 2 = 590px
+
+Left side (Charts):
+  x = MARGIN (40)
+  width = 590
+
+Right side (Table):
+  x = MARGIN + 590 + GAP = 650
+  width = 590
+  y = MARGIN + KPI_HEIGHT + GAP (if KPIs) or MARGIN (if no KPIs)
+  height = remaining content height
+```
+
+### Table-Focused Layout
+
+**When to use**: Reports where the table is the primary visual
+
+**Rules**:
+- KPIs in top row (if present), height = 120px
+- Table takes full page width below KPIs
+- No charts, or charts on separate page
+
+**Position calculations**:
+```
+Table area:
+  x = MARGIN (40)
+  y = MARGIN + KPI_HEIGHT + GAP (if KPIs) or MARGIN (if no KPIs)
+  width = content_width (1200)
+  height = remaining content height
+```
+
 ### Analytical Layout (with Slicers)
 
-**When to use**: Reports with slicers/filters and data tables
+**When to use**: Reports with slicers/filters
 
 **Rules**:
 - Slicers in left sidebar, width = 200px
 - KPIs in top row (right of slicers)
-- Main charts in center
-- Table at bottom, full width minus slicer
+- Charts in center-left area
+- Table on right half (if present)
 
 **Position calculations**:
 ```
@@ -59,9 +101,13 @@ Slicer area:
   width = 200
   height = content_height (640)
 
-Main content:
+Main content area:
   x = MARGIN + 200 + GAP = 260
   available_width = PAGE_WIDTH - 260 - MARGIN = 980
+
+If table present, split main content:
+  Left (Charts): width = (980 - GAP) / 2 = 480
+  Right (Table): width = 480, x = 260 + 480 + GAP = 760
 ```
 
 ### Executive Summary Layout
@@ -206,6 +252,40 @@ Main content:
 
 ---
 
+## Typography
+
+- **Titles**: Bold, 14pt
+- **Subtitles**: Regular, 11pt
+- **Data labels**: Regular, 9pt
+- **Font family**: Segoe UI (Power BI default)
+
+---
+
+## Accessibility
+
+### Colour Contrast
+- Minimum contrast ratio: 4.5:1 for normal text
+- Minimum contrast ratio: 3:1 for large text
+- Always test with colour blindness simulators before finalising
+
+### Colour Blind Friendly Design
+- **Never use red/green combinations alone**
+- Use patterns, shapes, or labels as secondary differentiators
+- Ensure sequential colours have distinct luminance (light to dark)
+- Add data labels to charts where colour is the only differentiator
+
+### Recommended Colour Blind Safe Palettes
+Instead of red/green, use:
+- Blue and orange
+- Blue and yellow
+- Purple and yellow
+- Different shades of the same colour with clear luminance difference
+
+### Testing Tips
+- Check charts in greyscale to verify luminance differences
+
+---
+
 ## Visual Type Classification
 
 ### KPI Visuals
@@ -244,6 +324,43 @@ Main content:
 
 ---
 
+## Visual Aspect Ratio Rules
+
+When resizing visuals to fill the page, respect these shape constraints:
+
+### MUST BE SQUARE (1:1 ratio)
+These visuals contain circles or need equal axis treatment:
+- `pieChart` - min 200x200px
+- `donutChart` - min 200x200px
+- `treemap` - min 200x200px
+- `scatterChart` - min 250x250px
+- `gauge` - min 150x150px
+
+### MUST BE LANDSCAPE (wider than tall)
+These visuals show trends or horizontal data flow:
+- `lineChart` - ratio ~1.6:1, min 300x180px
+- `areaChart` - ratio ~1.6:1, min 300x180px
+- `clusteredBarChart` - ratio ~1.5:1, min 300x200px
+- `waterfallChart` - ratio ~1.6:1, min 350x220px
+- `ribbonChart` - ratio ~1.6:1, min 350x220px
+- `card` / `kpi` - ratio ~3:1, min 200x80px
+
+### MUST BE PORTRAIT (taller than wide)
+These visuals flow vertically:
+- `funnel` - ratio ~1:1.5, min 200x300px
+- `slicer` - ratio ~1:2, min 150x300px
+- `clusteredColumnChart` - ratio ~1:1.2, min 200x240px
+
+### FLEXIBLE (either orientation)
+- `tableEx` / `matrix` - adjust based on columns vs rows
+- `multiRowCard` - landscape preferred but flexible
+
+### The "Don't Stretch" Rule
+NEVER make a square visual into a thin rectangle to fill space.
+Instead: adjust surrounding visuals or accept whitespace.
+
+---
+
 ## Editing Instructions for Copilot
 
 When editing a flattened Power BI Word document:
@@ -253,6 +370,8 @@ When editing a flattened Power BI Word document:
 2. Update theme colors in the theme JSON file
 3. Adjust visualStyles for borders, shadows, backgrounds
 4. Reorder visuals logically by type
+5. **Rename the theme file** when applying a new theme (e.g., change `CY25SU11.json` to `CustomTheme.json`) and update references in `report.json` - this prevents Power BI caching issues
+6. **Fill the page** - resize and position visuals to use the full available space (1200x640 content area) with no large empty gaps
 
 ### DO NOT:
 1. Modify `query` sections (data bindings)
@@ -289,14 +408,14 @@ Preserve these markers exactly:
 | Gap | 20px |
 | KPI height | 120px |
 | Slicer width | 200px |
-| Table height | 200px |
+| Half page width | 590px |
 | Border radius | 8px |
 
 ### Visual Grouping Priority
 1. Slicers → Left sidebar
 2. KPIs → Top row
-3. Charts → Main area (grid)
-4. Tables → Bottom row
+3. Charts → Left half (or full width if no table)
+4. Tables → Right half (or full width if table-focused)
 5. Text/Shapes → As positioned
 
 ---
