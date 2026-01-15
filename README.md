@@ -1,4 +1,4 @@
-# Power BI Report Design Knowledge Base
+# Customisable Power BI Report Formatter
 
 **Authored by Jennifer Hunter and Claude Code (Anthropic)**
 
@@ -74,7 +74,8 @@ The file [COPILOT_KNOWLEDGE.md](COPILOT_KNOWLEDGE.md) is the knowledge base docu
 
 This toolkit is optimised for use with the **free Copilot Agent Studio**. Further improvements and capabilities could be achieved with:
 - A Copilot Pro licence
-- More advanced AI models
+- AI coding assistants integrated in IDE (e.g., GitHub Copilot)
+- Agentic AI coding agents integrated in IDE (e.g., Claude Code, Codex)
 - Future software updates to the Power Platform
 
 ### Agent Setup
