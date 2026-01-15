@@ -152,29 +152,47 @@ flowchart TD
     A[".Report Folder<br/>(PBIP Format)"]
 
     subgraph "AI-Assisted Route"
-        A --> B["directory_flattener.py"]
+        A --> B["directory_flattener.py<br/>(Flatten nested folders)"]
         B --> C["Word Document<br/>(All JSONs in one file)"]
         C --> D{"Edit Method"}
         D -->|Manual| E["Edit in Word"]
-        D -->|AI-Assisted| F["Upload to Copilot Agent"]
+        D -->|AI-Assisted| F["Upload to Copilot Agent<br/>(Trained on layout rules,<br/>themes & accessibility)"]
         E --> G["Edited Word Document"]
         F --> G
-        G --> H["restore_from_word.py"]
+        G --> H["restore_from_word.py<br/>(Rebuild folder structure)"]
         H --> I["Restored .Report Folder"]
     end
 
     subgraph "Non-AI Route"
-        A --> K["directory_flattener.py"]
+        A --> K["directory_flattener.py<br/>(Flatten nested folders)"]
         K --> L["Word Document<br/>(All JSONs in one file)"]
-        L --> M["report_reformatter.py<br/>(Programmatically reformats<br/>without use of AI)"]
+        L --> M["report_reformatter.py<br/>(Mathematical resizing<br/>& layout rules)"]
         M --> N["Edited Word Document"]
-        N --> O["restore_from_word.py"]
+        N --> O["restore_from_word.py<br/>(Rebuild folder structure)"]
         O --> P["Restored .Report Folder"]
     end
 
     I --> J["Open in Power BI Desktop"]
     P --> J
 ```
+
+### How Each Step Works
+
+**1. Directory Flattener** (`directory_flattener.py`)
+
+Power BI reports consist of deeply nested folders with multiple JSON files. Navigating this structure and copying content into an AI tool is tedious and error-prone. The directory flattener recursively walks the directory and consolidates everything into a single Word document, making the entire report readable by both humans and machines in one place.
+
+**2a. Non-AI Route** (`report_reformatter.py`)
+
+This script uses mathematical principles to resize and reposition visuals automatically. It calculates optimal positions based on visual types, applies consistent spacing, and outputs an edited Word document - all without any AI involvement.
+
+**2b. AI-Assisted Route** (Copilot Agent)
+
+The trained Copilot agent has been provided with layout rules, theme definitions, accessibility guidelines, and Power BI-specific knowledge. After uploading your flattened document, you can chat with the agent to explore themes, adjust layouts, and refine the design. The agent outputs an edited Word document based on your prompts.
+
+**3. Restore from Word** (`restore_from_word.py`)
+
+Both routes produce an edited Word document. This script parses that document and rebuilds the correct directory structure, placing each JSON file back in its proper location - ready to be opened in Power BI Desktop.
 
 ### Script Summary
 
