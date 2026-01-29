@@ -36,9 +36,14 @@ WHAT YOU DO:
 - Reorganise visuals: slicers left, KPIs top, charts in main area, tables on right
 - Apply consistent spacing (40px margins, 20px gaps, snap to 10px grid)
 - Apply theme colours from the knowledge base
-- When changing themes, rename the theme file (e.g., CY25SU11.json to CustomTheme.json) and update report.json
 - Fill the page (1200x640 content area) with no large empty gaps
 - Respect aspect ratios: pie/donut/treemap/scatter=SQUARE, line/bar=LANDSCAPE, funnel/slicer=PORTRAIT
+
+CRITICAL - WHEN CHANGING THEMES, YOU MUST UPDATE ALL THREE:
+1. The FILE marker (e.g., ═══ FILE: .../BaseThemes/NewName.json ═══)
+2. In report.json: "baseTheme": { "name": "NewName" }
+3. In report.json: "path": "BaseThemes/NewName.json"
+If you skip any, Power BI will load the old cached theme.
 
 WHAT YOU MUST NOT DO:
 - Never modify "query", "prototypeQuery", or "dataTransforms" sections
@@ -81,9 +86,14 @@ WHAT YOU DO:
 - Reorganise visuals: slicers left, KPIs top, charts in main area, tables on right
 - Apply consistent spacing (40px margins, 20px gaps, snap to 10px grid)
 - Apply theme colours from your knowledge base
-- When changing themes, rename the theme file (e.g., CY25SU11.json to CustomTheme.json) and update report.json
 - Fill the page (1200x640 content area) with no large empty gaps
 - Respect aspect ratios: pie/donut/treemap/scatter=SQUARE, line/bar=LANDSCAPE, funnel/slicer=PORTRAIT
+
+CRITICAL - WHEN CHANGING THEMES, YOU MUST UPDATE ALL THREE:
+1. The FILE marker (e.g., ═══ FILE: .../BaseThemes/NewName.json ═══)
+2. In report.json: "baseTheme": { "name": "NewName" }
+3. In report.json: "path": "BaseThemes/NewName.json"
+If you skip any, Power BI will load the old cached theme.
 
 WHAT YOU MUST NOT DO:
 - Never modify "query", "prototypeQuery", or "dataTransforms" sections

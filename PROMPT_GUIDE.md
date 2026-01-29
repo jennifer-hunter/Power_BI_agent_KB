@@ -33,72 +33,112 @@ Always:
 
 ---
 
-## Layout Prompts
+## Example Prompts
 
-### Align All Visuals to Grid
+These prompts combine theme styling with intelligent layout rules. Copy and adapt them to your needs.
+
+### Light Blue Professional
 
 ```
-Please review this Power BI report and adjust all visual positions
-to snap to a 10px grid. Round x, y, width, and height values to
-the nearest 10.
+I want the theme to be a light blue palette. Could you use your
+knowledge of colour theory and accessibility to create something
+professional?
+
+For pages with one visual, make it full screen.
+For pages with two visuals, make them side by side filling the screen.
+For pages with three visuals, make the first visual fill half the
+page on the left, and the other two stacked vertically in quarters
+filling the other half.
 
 Do not modify any query, prototypeQuery, or dataTransforms sections.
-Only change position values.
 ```
 
-### Organise Visuals by Type
+### Warm Earth Tones
 
 ```
-Please reorganise the visuals in this report following these rules:
-- KPI cards (card, cardVisual, multiRowCard) go in the top row, height 120px
-- Slicers go in a left sidebar, width 200px
-- Charts go in the main area
-- Tables go on the right half of the page
+I want the theme to use warm earth tones - terracotta, sand, and
+olive. Could you use your knowledge of colour theory and accessibility
+to create something professional?
 
-Page size is 1280 x 720 pixels. Use 40px margins and 20px gaps.
+For pages with one visual, make it full screen.
+For pages with two visuals, make them side by side filling the screen.
+For pages with three visuals, make the first visual fill half the
+page on the left, and the other two stacked vertically in quarters
+filling the other half.
 
-Do not modify any query or data binding sections - only change position values.
+Do not modify any query, prototypeQuery, or dataTransforms sections.
 ```
 
-### Even Spacing
+### Dark Mode Professional
 
 ```
-Please adjust the visual positions so there is consistent 20px
-spacing between all visuals. Keep 40px margins from the page edges.
+I want a dark mode theme with a deep navy background and bright
+accent colours. Could you use your knowledge of colour theory and
+accessibility to ensure good contrast and readability?
 
-Only modify x, y, width, and height values. Do not change any
-other properties.
+For pages with one visual, make it full screen.
+For pages with two visuals, make them side by side filling the screen.
+For pages with three visuals, make the first visual fill half the
+page on the left, and the other two stacked vertically in quarters
+filling the other half.
+
+Do not modify any query, prototypeQuery, or dataTransforms sections.
+```
+
+### Corporate Green
+
+```
+I want the theme to be a professional green palette - think
+sustainability or finance. Could you use your knowledge of colour
+theory and accessibility to create something that looks corporate
+but modern?
+
+For pages with one visual, make it full screen.
+For pages with two visuals, make them side by side filling the screen.
+For pages with three visuals, make the first visual fill half the
+page on the left, and the other two stacked vertically in quarters
+filling the other half.
+
+Do not modify any query, prototypeQuery, or dataTransforms sections.
+```
+
+### Soft Purple Minimal
+
+```
+I want a soft purple and grey palette with a clean, minimal feel.
+Could you use your knowledge of colour theory and accessibility to
+create something professional and calming?
+
+For pages with one visual, make it full screen.
+For pages with two visuals, make them side by side filling the screen.
+For pages with three visuals, make the first visual fill half the
+page on the left, and the other two stacked vertically in quarters
+filling the other half.
+
+Do not modify any query, prototypeQuery, or dataTransforms sections.
 ```
 
 ---
 
-## Theme Prompts
+## Customising the Prompts
 
-### Apply Corporate Blue Theme
+Feel free to adjust:
 
+- **Colour palette**: Describe the mood or specific colours you want
+- **Layout rules**: Change how visuals are arranged based on count
+- **Additional styling**: Ask for borders, shadows, rounded corners, etc.
+
+Example additions:
 ```
-Please update the theme file (the JSON in StaticResources/SharedResources/BaseThemes/)
-with these colours:
-
-Primary: #0066CC
-Data colours: #0066CC, #004C99, #3399FF, #66B2FF, #99CCFF, #003366
-Background: #FFFFFF
-Text: #1A1A1A
-
-Only modify the theme JSON file, not the visual files.
+Also add subtle rounded corners and a light drop shadow to each visual.
 ```
 
-### Add Borders and Shadows
+```
+Make the background a very light grey (#F8F9FA) instead of white.
+```
 
 ```
-In the theme file, please add these visualStyles to give all visuals
-a consistent appearance:
-
-- Border: show true, colour #E2E8F0, radius 8px
-- Drop shadow: show true, preset BottomRight
-- Background: show true, colour #FFFFFF
-
-Only modify the theme file's visualStyles section.
+For pages with four or more visuals, arrange them in a 2x2 grid.
 ```
 
 ---

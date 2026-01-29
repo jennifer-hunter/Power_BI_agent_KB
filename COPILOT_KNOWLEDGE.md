@@ -370,8 +370,36 @@ When editing a flattened Power BI Word document:
 2. Update theme colors in the theme JSON file
 3. Adjust visualStyles for borders, shadows, backgrounds
 4. Reorder visuals logically by type
-5. **Rename the theme file** when applying a new theme (e.g., change `CY25SU11.json` to `CustomTheme.json`) and update references in `report.json` - this prevents Power BI caching issues
-6. **Fill the page** - resize and position visuals to use the full available space (1200x640 content area) with no large empty gaps
+5. **Fill the page** - resize and position visuals to use the full available space (1200x640 content area) with no large empty gaps
+
+### CRITICAL: Theme Renaming (Required when changing themes)
+
+When applying a new theme, you MUST change THREE things to prevent Power BI caching issues:
+
+1. **Rename the FILE marker** for the theme file:
+   ```
+   BEFORE: ═══ FILE: StaticResources/SharedResources/BaseThemes/CY25SU11.json ═══
+   AFTER:  ═══ FILE: StaticResources/SharedResources/BaseThemes/NewThemeName.json ═══
+   ```
+
+2. **In report.json, update `themeCollection.baseTheme.name`**:
+   ```json
+   "baseTheme": {
+     "name": "NewThemeName",
+   ```
+
+3. **In report.json, update `resourcePackages.items`**:
+   ```json
+   "items": [
+     {
+       "name": "NewThemeName",
+       "path": "BaseThemes/NewThemeName.json",
+       "type": "BaseTheme"
+     }
+   ]
+   ```
+
+If you skip any of these steps, Power BI will load the old cached theme instead of your new one.
 
 ### DO NOT:
 1. Modify `query` sections (data bindings)
