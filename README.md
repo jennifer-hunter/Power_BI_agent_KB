@@ -27,8 +27,6 @@
 
 This is a **proof of concept** demonstrating how Power BI report formatting can be streamlined using scripts and AI assistance.
 
-**Future Development**: The goal is to integrate this toolkit with the wider Power Platform ecosystem (Power Automate and Power Apps) to provide a user-friendly front end that doesn't require any coding knowledge. This integration is currently in development as I continue to expand my skills across these platforms.
-
 **Current State**: The toolkit is fully functional and can be used as-is. However, it does require:
 - Basic familiarity with running Python scripts
 - Comfort using VS Code
