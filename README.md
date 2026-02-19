@@ -27,7 +27,7 @@
 
 This is a **proof of concept** demonstrating how Power BI report formatting can be streamlined using scripts and AI assistance.
 
-**Current State**: The toolkit is fully functional and can be used as-is. However, it does require:
+**Current State**: The toolkit is functional (except known theme-renaming bug - see below fo current workaround) and can be used as-is. However, it does require:
 - Basic familiarity with running Python scripts
 - Comfort using VS Code
 - Following the step-by-step instructions in the [Getting Started Guide](GETTING_STARTED.md)
